@@ -1,5 +1,5 @@
 # dna-pj
-# DNA 序列重复片段查找实验报告
+# DNA 序列重复片段lab1
 
 ## 1. 实验目的
 
@@ -7,17 +7,10 @@
 
 ## 2. 实验方法
 
-本实验使用动态规划方法计算最长公共子序列（LCS），以识别 DNA 片段的重复情况。同时，通过合并相似的重复片段提高分析的准确性。
+本实验使用动态规划方法计算最长公共子序列，以识别 DNA 片段的重复情况。同时，通过合并相似的重复片段提高分析的准确性。
 
-## 3. 伪代码
+## 3. 算法伪代码
 
-### 读取 DNA 序列
-
-```python
-Function read_file(file_path):
-    Open file at file_path
-    Read and return stripped content
-```
 
 ### 计算互补序列
 
@@ -29,7 +22,7 @@ Function get_complement_sequence(sequence):
     Return complement_seq as string
 ```
 
-### 计算最长公共子序列（LCS）
+### 计算最长公共子序列
 
 ```python
 Function sequence_similarity(seq1, seq2):
@@ -43,7 +36,7 @@ Function sequence_similarity(seq1, seq2):
     Return dp[len(seq1)][len(seq2)] / max(len(seq1), len(seq2))
 ```
 
-### 查找重复片段
+### 动态规划查找重复片段
 
 ```python
 Function find_repeats(reference, query, is_complement=False):
@@ -59,40 +52,15 @@ Function find_repeats(reference, query, is_complement=False):
     Return repeat list
 ```
 
-### 合并相似重复片段
-
-```python
-Function merge_similar_repeats(repeats, length_diff=2, similarity_threshold=0.95):
-    Group repeats by complement status
-    Sort groups by segment length
-    Merge similar repeats if:
-        Length difference <= length_diff
-        Similarity >= similarity_threshold
-    Return merged repeats
-```
 
 ## 4. 复杂度分析
 
-### 读取文件
+**时间复杂度**：使用动态规划方法寻找两个序列中的重复片段时间复杂度：O(n²)，其中n是序列长度。 
 
-**时间复杂度**：O(N)，N 为 DNA 序列长度。 **空间复杂度**：O(1)。
+**空间复杂度**：也是O(n²)。
 
-### 计算互补序列
 
-**时间复杂度**：O(N) **空间复杂度**：O(N)
+## 5. 运行结果
 
-### 计算最长公共子序列（LCS）
 
-**时间复杂度**：O(M × N) **空间复杂度**：O(M × N) 其中 M 和 N 分别为参考序列和查询序列的长度。
 
-### 查找重复片段
-
-**时间复杂度**：O(M × N) **空间复杂度**：O(M × N)
-
-### 合并相似重复片段
-
-**时间复杂度**：O(K^2)，K 为重复片段数量（假设使用冒泡排序）。 **空间复杂度**：O(K)
-
-## 5. 实验总结
-
-本实验成功实现了 DNA 序列重复片段的识别和合并，通过 LCS 方法进行相似性计算，并综合考虑了反向互补序列的重复情况。未来可优化排序算法和内存占用，提高处理大规模数据的效率。
