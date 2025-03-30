@@ -62,5 +62,7 @@ Function find_repeats(reference, query, is_complement=False):
 
 ## 5. 运行结果
 
+![lab1运行截图](lab1运行截图.png)
+
 
 
